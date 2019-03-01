@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Magic Ball</title>
+    <link rel="stylesheet" href="styleball.css">
+</head>
+
+<body>
+    <div id="particles"></div>
+    <section class="stage">
+        <div id="particles-js"></div>
+
+        <div class="ball-container">
+            <div class="ball">
+                <div class="ball-center">
+                    <div>
+                        <div class="triangle"></div>
+                        <div class="textbox"></div>
+                        <div class="space"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="bParticles.js"></script>
+    <script>
+        bParticles("bParticles.json", "particles", function (particlesID) {
+            console.log("bParticles initiliazed with ID #" + particlesID);
+        });
+        var answers = [
+            'yes',
+            'no',
+            'maybe',
+            'are you crazy?!',
+            "don't think about it!",
+            'ask tommorow',
+            'this is not good idea',
+            "let's do it!",
+            "don't worry",
+            'As I see it, yes',
+            'Better not tell you no',
+            'Ask again later',
+            'Cannot predict now',
+            'Without a doubt',
+            'good idea',
+            'do it!'
+        ]
+
+        let answer = document.querySelector('.textbox')
+        let answerBox = document.querySelector('.space')
+
+        let showAnswer = function () {
+            let randomAnswer = answers[Math.floor(Math.random() * answers.length)];
+            answer.innerHTML = randomAnswer;
+        }
+        answerBox.addEventListener('mouseover', showAnswer);
+    </script>
+</body>
